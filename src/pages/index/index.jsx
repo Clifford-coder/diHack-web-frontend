@@ -31,16 +31,15 @@ const index = () => {
     'Learn Sign Language',
     'Emergency',
     'Examine Environment',
-    'Voice Expression',
   ];
 
   return (
     <Container>
       <Header>
         <ColTwoOfHeader>
-          <Heading>Welcome to blahblah</Heading>
+          <Heading>Welcome to Depin</Heading>
           <Subheading>
-            Enjoy your stay around buddy{' '}
+            A place where everyone is heard{' '}
             <span role="img" aria-label="winking face">
               😉
             </span>
@@ -51,10 +50,7 @@ const index = () => {
         </ColOneOfHeader>
       </Header>
       <Main>
-        <MainHeading>What you wanna do?</MainHeading>
-        <MainSubheading>
-          Please Select your activity and ypu woll be fine.
-        </MainSubheading>
+        <MainHeading>How do you want to communicate?</MainHeading>
         <Navigations>
           {navs.map((nav, i) => {
             return (

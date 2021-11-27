@@ -6,10 +6,10 @@ export const StyledModal = styled(ReactModalAdaptor)`
     ${tw`fixed inset-0 z-50`}
   }
   &.mainHeroModal__content {
-    ${tw`xl:mx-auto m-4 sm:m-16 max-w-screen-xl absolute inset-0 flex justify-center items-center rounded-lg bg-gray-200 outline-none`}
+    ${tw`xl:mx-auto m-4 sm:m-16 max-w-screen-xl absolute inset-0 flex justify-center items-center rounded-lg bg-red-900 outline-none`}
   }
   .content {
-    ${tw`w-full lg:p-16`}
+    ${tw`w-full lg:p-16 bg-red-900`}
   }
 `;
 
