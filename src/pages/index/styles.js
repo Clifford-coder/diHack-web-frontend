@@ -36,7 +36,15 @@ export const Navigation = styled.li`
   }}
   ${tw`inline-block font-medium! cursor-pointer rounded-full md:px-4 md:py-2 
 	text-2xl md:text-3xl lg:text-4xl px-2 py-1
-	 capitalize lg:m-4 md:m-2 m-1 hover:bg-white hover:shadow-inner hover:scale-105 transform transition-all duration-300`}
+	 normal-case! lg:m-4 md:m-2 m-1 hover:bg-white hover:shadow-inner hover:scale-105 transform transition-all duration-300`}
 `;
+
+export const SpeechToTextWrap = tw.div`rounded-full cursor-pointer mt-4 hover:bg-green-600 hover:text-white border-2 border-green-600 bg-white h-24 w-24 flex items-center justify-center`;
+export const Microphone = tw.i`text-4xl font-bold`;
+
+export const TextArea = tw.textarea`outline-none w-full md:w-11/12 md:mt-4 mt-2 border-2 border-gray-300 bg-gray-100 rounded-md md:mb-6 mb-4 py-2 pl-2 font-bold text-gray-700`;
+export const AudioPlayerWrapper = tw.div`w-full -mt-8 h-auto py-8 px-12 rounded-md bg-white mx-auto overflow-hidden`;
+export const Audio = tw.audio`w-full focus:outline-none mt-2`;
+export const Source = tw.source``;
 
 // md:bg-gradient-to-l md:from-white md:via-blue-300  md:to-blue-600 bg-gradient-to-t from-white via-green-300 to-blue-600

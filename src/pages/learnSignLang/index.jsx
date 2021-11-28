@@ -12,6 +12,7 @@ import {
 } from './styles';
 import { toast } from 'react-toastify';
 import { BeatLoader } from 'react-spinners';
+import { SectionHeading } from '../../components/misc';
 
 const LearnSignLang = () => {
   const [videos, setVideos] = useState(null);
@@ -61,23 +62,29 @@ const LearnSignLang = () => {
       </HomeBut>
       <Heading>Here are some videos from youtube</Heading>
       <ContentWrap>
-        {videos.map((video) => {
-          const { snippet, id } = video;
-          return (
-            <VideoCard
-              key={id.videoId}
-              onClick={() =>
-                window.open(
-                  `https://www.youtube.com/watch?v=${id.videoId}`,
-                  '_blank'
-                )
-              }
-            >
-              <VideoCardImg src={snippet.thumbnails.high.url} />
-              <VideoCardTitle>{snippet.title}</VideoCardTitle>
-            </VideoCard>
-          );
-        })}
+        {!videos ? (
+          <SectionHeading style={{ textAlign: 'center' }}>
+            No videos available at the momemt
+          </SectionHeading>
+        ) : (
+          videos.map((video) => {
+            const { snippet, id } = video;
+            return (
+              <VideoCard
+                key={id.videoId}
+                onClick={() =>
+                  window.open(
+                    `https://www.youtube.com/watch?v=${id.videoId}`,
+                    '_blank'
+                  )
+                }
+              >
+                <VideoCardImg src={snippet.thumbnails.high.url} />
+                <VideoCardTitle>{snippet.title}</VideoCardTitle>
+              </VideoCard>
+            );
+          })
+        )}
       </ContentWrap>
     </Wrapper>
   );

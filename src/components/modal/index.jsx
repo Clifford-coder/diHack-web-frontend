@@ -1,20 +1,26 @@
 import React from 'react';
-import { StyledModal, CloseModalButton, CloseIcon } from './styles';
+import {
+  StyledModal,
+  CloseModalButton,
+  CloseIcon,
+  CloseIconWrap,
+  ContentCenter,
+} from './styles';
 
-const Modal = ({ modalIsOpen, toggleModal }) => {
-  console.log('modeia lis opme -----', modalIsOpen);
+const Modal = ({ modalIsOpen, toggleModal, children }) => {
   return (
     <StyledModal
-      closeTimeoutMS={300}
-      className="mainHeroModal"
+      closeTimeoutMS={200}
       isOpen={modalIsOpen}
       onRequestClose={toggleModal}
       shouldCloseOnOverlayClick={true}
     >
-      <CloseModalButton onClick={toggleModal}>
-        <CloseIcon className="far fa-times-circle" />
-      </CloseModalButton>
-      <h1 style={{ height: '95%' }}>Hi there</h1>
+      <CloseIconWrap>
+        <CloseModalButton onClick={toggleModal}>
+          <CloseIcon className="far fa-times-circle" />
+        </CloseModalButton>
+      </CloseIconWrap>
+      <ContentCenter>{children}</ContentCenter>
     </StyledModal>
   );
 };
