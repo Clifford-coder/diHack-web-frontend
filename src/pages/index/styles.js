@@ -26,9 +26,17 @@ export const MainSubheading = tw(Subheading)`text-center`;
 export const Navigations = tw.ul`text-center`;
 
 export const Navigation = styled.li`
-  ${tw`inline-block font-medium! cursor-pointer bg-green-600 rounded-full md:px-4 md:py-2 
+  ${({ red }) => {
+    switch (red) {
+      case 'yes':
+        return tw`bg-red-600 text-white hover:text-red-600`;
+      default:
+        return tw`bg-green-600 text-teal-700`;
+    }
+  }}
+  ${tw`inline-block font-medium! cursor-pointer rounded-full md:px-4 md:py-2 
 	text-2xl md:text-3xl lg:text-4xl px-2 py-1
-	text-teal-700 capitalize lg:m-4 md:m-2 m-1 hover:bg-white hover:shadow-inner hover:scale-105 transform transition-all duration-300`}
+	 capitalize lg:m-4 md:m-2 m-1 hover:bg-white hover:shadow-inner hover:scale-105 transform transition-all duration-300`}
 `;
 
 // md:bg-gradient-to-l md:from-white md:via-blue-300  md:to-blue-600 bg-gradient-to-t from-white via-green-300 to-blue-600

@@ -10,12 +10,12 @@ import {
   Subheading,
   Main,
   MainHeading,
-  MainSubheading,
   Navigations,
   Navigation,
 } from './styles';
 import deafIllustration from '../../assets/mask-for-the-deaf-animate.svg';
 import Modal from '../../components/modal';
+import { Link } from 'react-router-dom';
 
 const index = () => {
   const [nav, setNav] = useState('');
@@ -60,8 +60,13 @@ const index = () => {
                   setNav(nav);
                   toggleModal();
                 }}
+                red={nav === 'Emergency' ? 'yes' : 'no'}
               >
-                {nav}?
+                {nav === 'Learn Sign Language' ? (
+                  <Link to="/learn-sign-lang">{nav}</Link>
+                ) : (
+                  nav
+                )}
               </Navigation>
             );
           })}

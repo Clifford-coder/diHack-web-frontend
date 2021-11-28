@@ -3,6 +3,7 @@ import 'tailwindcss/dist/base.min.css';
 import IndexPage from './pages/index';
 import Signup from './pages/signup';
 import SignIn from './pages/login';
+import LearnSignLang from './pages/learnSignLang';
 import { firebaseAuth } from './apis/Firebase';
 
 function App() {
@@ -12,6 +13,10 @@ function App() {
     {
       path: '/home',
       element: currentUser ? <IndexPage /> : <Navigate to="/sign-in" />,
+    }, // protected
+    {
+      path: '/learn-sign-lang',
+      element: currentUser ? <LearnSignLang /> : <Navigate to="/sign-in" />,
     }, // protected
     { path: '/', element: <Navigate to="/home" /> },
     { path: '/sign-up', element: <Signup /> },
