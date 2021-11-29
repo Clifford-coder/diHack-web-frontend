@@ -88,7 +88,7 @@ const signup = () => {
   return (
     <Wrapper>
       <Card>
-        <Title>Sign up with dipen</Title>
+        <Title>Sign up with shii</Title>
         <Form onSubmit={handleSubmit}>
           <Label>Email:</Label>
           <Input

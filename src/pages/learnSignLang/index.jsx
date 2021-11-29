@@ -34,7 +34,7 @@ const LearnSignLang = () => {
         setVideos(response.data.items);
       })();
     } catch (error) {
-      console.log(error);
+      console.error(error);
       toast.error('Error occured in getting videos!');
     }
   }, []);

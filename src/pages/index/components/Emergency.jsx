@@ -10,7 +10,6 @@ const Emergency = ({ userLocation }) => {
   const [isLoading, setIsLoading] = useState(false);
   const currentUserId = firebaseAuth.getAuth().currentUser.uid;
   const sendToSos = async () => {
-    console.log('UserLoactoin', { userLocation, message });
     try {
       const { getFirestore, collection, where, getDocs, query } = firestore;
       let emergencyContact;
@@ -18,7 +17,7 @@ const Emergency = ({ userLocation }) => {
       if (!userLocation) {
         if (
           window.confirm(
-            'Please accept allow us to access your location, otherwise we cannot notify your sos with your location.If you click "ok" you would be redirected. Cancel will load this website '
+            'Please allow us to access your location, otherwise we cannot notify your emergency contact of your location. If you click "ok" you would be redirected. Cancel will load this website '
           )
         ) {
           // add different browser instructions to enable location. using react-device-detect
@@ -41,23 +40,18 @@ const Emergency = ({ userLocation }) => {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach(async (doc) => {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, ' => ', doc.data());
         emergencyContact = doc.data().emergencyContact;
       });
       // send sms to sos
       const customMess = `${message}. This is my location https://www.google.com/maps/search/?api=1&query=${userLocation.latitude}%2C${userLocation.longitude} .`;
-      const response = await axios.post(
-        'https://dihack-backend.herokuapp.com/send-sms',
-        {
-          to: emergencyContact,
-          text: customMess,
-        }
-      );
-      console.log({ emergencyContact, customMess, bac: response.data });
+      await axios.post('https://dihack-backend.herokuapp.com/send-sms', {
+        to: emergencyContact,
+        text: customMess,
+      });
       setIsLoading(false);
       return toast.success('Message sent successfully. Help is on the way!');
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setIsLoading(false);
       toast.error(
         'Error occured in sending message to your emergency contact!'

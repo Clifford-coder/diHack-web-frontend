@@ -71,7 +71,7 @@ const login = () => {
   return (
     <Wrapper>
       <Card>
-        <Title>Sign In with dipen</Title>
+        <Title>Sign In with shii</Title>
         <Form onSubmit={handleSubmit}>
           <Label>Email:</Label>
           <Input

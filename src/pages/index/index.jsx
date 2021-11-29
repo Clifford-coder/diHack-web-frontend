@@ -49,11 +49,11 @@ const index = () => {
           });
           if (permissionToUseLoc.state === 'denied') {
             alert(
-              'Please accept allow us to access your location, otherwise we cannot notify your sos incase there is an emergency'
+              'Please allow us to access your location, otherwise we cannot notify your emergency contact of your location'
             );
           }
         } catch (error) {
-          console.log(error);
+          console.error(error);
           return toast.error('Error occured in getting your location');
         }
       })();
