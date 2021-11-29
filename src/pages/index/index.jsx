@@ -1,6 +1,8 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import {
   Header,
   ColOneOfHeader,
@@ -12,24 +14,53 @@ import {
   MainHeading,
   Navigations,
   Navigation,
-  SpeechToTextWrap,
-  Microphone,
-  TextArea,
-  AudioPlayerWrapper,
-  Audio,
-  Source,
 } from './styles';
 import { Container } from '../../components/misc';
 import deafIllustration from '../../assets/mask-for-the-deaf-animate.svg';
 import Modal from '../../components/modal';
+import Texttospeech from './components/TextToSpeech';
+import Emergency from './components/Emergency';
+import Speechtotext from './components/SpeechToText';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const index = () => {
   const [nav, setNav] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
-
+  const [userLocation, setUserLocation] = useState(null);
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
+
+  //get user location
+  useEffect(() => {
+    if (navigator.geolocation) {
+      (async () => {
+        try {
+          navigator.geolocation.getCurrentPosition(function (position) {
+            setUserLocation({
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude,
+              accurary: position.coords.accuracy,
+            });
+          });
+          const permissionToUseLoc = await navigator.permissions.query({
+            name: 'geolocation',
+          });
+          if (permissionToUseLoc.state === 'denied') {
+            alert(
+              'Please accept allow us to access your location, otherwise we cannot notify your sos incase there is an emergency'
+            );
+          }
+        } catch (error) {
+          console.log(error);
+          return toast.error('Error occured in getting your location');
+        }
+      })();
+    } else {
+      toast.warn('GeoLocation service not supported in your browser');
+    }
+  }, []);
 
   const navs = [
     'Text to speech',
@@ -42,42 +73,11 @@ const index = () => {
   const renderModalContent = () => {
     switch (nav) {
       case 'Text to speech':
-        return (
-          <>
-            <Subheading style={{ fontWeight: 'bold' }}>
-              Type to listen
-            </Subheading>
-            <p>Start typing and click the play button in order to listen</p>
-            <TextArea placeholder="type here" />
-            <AudioPlayerWrapper>
-              <Audio controls autoplay loop>
-                <Source src="" type="audio/mpeg" />
-              </Audio>
-            </AudioPlayerWrapper>
-          </>
-        );
+        return <Texttospeech />;
       case 'Speech to text':
-        return (
-          <>
-            <Subheading style={{ fontWeight: 'bold' }}>Tap to speak</Subheading>
-            <SpeechToTextWrap>
-              <Microphone className="fas fa-microphone-alt" />
-            </SpeechToTextWrap>
-          </>
-        );
+        return <Speechtotext />;
       case 'Emergency':
-        return (
-          <>
-            <Subheading style={{ fontWeight: 'bold' }}>
-              Describe Situation
-            </Subheading>
-            <p>Start typing and click the button to send</p>
-            <TextArea placeholder="type here" />
-            <SpeechToTextWrap>
-              <Microphone className="fas fa-share-square" />
-            </SpeechToTextWrap>
-          </>
-        );
+        return <Emergency userLocation={userLocation} />;
       case 'Examine Environment':
         // to be discused later
         return (

@@ -93,13 +93,8 @@ const login = () => {
             type={showPassword ? 'text' : 'password'}
           />
           <ShowPassword>
-            <input
-              type="checkbox"
-              value={showPassword}
-              onChange={toggleShowPassword}
-            />
             <span onClick={toggleShowPassword} style={{ cursor: 'pointer' }}>
-              Show
+              {showPassword ? 'Hide' : 'Show'}
             </span>
           </ShowPassword>
           {errors.password && <InputErrMess>{errors.password}</InputErrMess>}

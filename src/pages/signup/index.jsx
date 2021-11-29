@@ -63,8 +63,8 @@ const signup = () => {
         // save user details in firestore.
         const { getFirestore, addDoc, collection } = firestore;
         await addDoc(collection(getFirestore(), 'users'), {
-          ...values,
           id: user.user.uid,
+          emergencyContact: values.emergencyContact,
         });
         toast.success('Successfully signed up!');
         // send user to home page
@@ -122,13 +122,8 @@ const signup = () => {
             name="password"
           />
           <ShowPassword>
-            <input
-              type="checkbox"
-              value={showPassword}
-              onChange={toggleShowPassword}
-            />
             <span onClick={toggleShowPassword} style={{ cursor: 'pointer' }}>
-              Show
+              {showPassword ? 'Hide' : 'Show'}
             </span>
           </ShowPassword>
           {errors.password && <InputErrMess>{errors.password}</InputErrMess>}

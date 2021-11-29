@@ -50,7 +50,7 @@ const LearnSignLang = () => {
           width: '100vw',
         }}
       >
-        <BeatLoader size={60} color="#08bd17" />
+        <BeatLoader size={40} color="#08bd17" />
       </div>
     );
   }
