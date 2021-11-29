@@ -96,7 +96,7 @@ const index = () => {
     <Container>
       <Header>
         <ColTwoOfHeader>
-          <Heading>Welcome to Depin</Heading>
+          <Heading>Welcome to Shii</Heading>
           <Subheading>
             A place where everyone is heard{' '}
             <span role="img" aria-label="winking face">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
 import { firebaseAuth, firestore } from '../../../apis/Firebase';
@@ -45,11 +45,17 @@ const Emergency = ({ userLocation }) => {
         emergencyContact = doc.data().emergencyContact;
       });
       // send sms to sos
-      //  await axios.get(
-      //    `https://digisms-server.herokuapp.com?recipient=${emergencyContact}&textMes=${message}`
-      //  );
-      console.log(emergencyContact);
+      const customMess = `${message}. This is my location https://www.google.com/maps/search/?api=1&query=${userLocation.latitude}%2C${userLocation.longitude} .`;
+      const response = await axios.post(
+        'https://dihack-backend.herokuapp.com/send-sms',
+        {
+          to: emergencyContact,
+          text: customMess,
+        }
+      );
+      console.log({ emergencyContact, customMess, bac: response.data });
       setIsLoading(false);
+      return toast.success('Message sent successfully. Help is on the way!');
     } catch (error) {
       console.log(error);
       setIsLoading(false);
