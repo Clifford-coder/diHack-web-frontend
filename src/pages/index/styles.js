@@ -25,6 +25,10 @@ export const MainSubheading = tw(Subheading)`text-center`;
 
 export const Navigations = tw.ul`text-center`;
 
+export const H4 = tw.h4`font-bold text-xl text-gray-600 mt-2 md:mt-6`;
+
+export const TextBox = tw.div`border-2 border-gray-200 rounded-md w-11/12 p-4 md:p-8 `;
+
 export const Navigation = styled.li`
   ${({ red }) => {
     switch (red) {
@@ -39,7 +43,13 @@ export const Navigation = styled.li`
 	 normal-case! lg:m-4 md:m-2 m-1 hover:bg-white hover:shadow-inner hover:scale-105 transform transition-all duration-300`}
 `;
 
-export const SpeechToTextWrap = tw.div`rounded-full cursor-pointer mt-4 hover:bg-green-600 hover:text-white border-2 border-green-600 bg-white h-24 w-24 flex items-center justify-center`;
+export const SpeechToTextWrap = styled.div`
+  ${({ isRed }) =>
+    isRed
+      ? tw`hover:bg-red-600 hover:text-white border-2 border-red-600 bg-white`
+      : tw`hover:bg-green-600 hover:text-white border-2 border-green-600 bg-white`}
+  ${tw`rounded-full cursor-pointer mt-4  h-24 w-24 flex items-center justify-center`}
+`;
 export const Microphone = tw.i`text-4xl font-bold`;
 
 export const TextArea = tw.textarea`outline-none w-full md:w-11/12 md:mt-4 mt-2 border-2 border-gray-300 bg-gray-100 rounded-md md:mb-6 mb-4 py-2 pl-2 font-bold text-gray-700`;
