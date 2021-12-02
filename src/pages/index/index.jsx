@@ -67,7 +67,7 @@ const index = () => {
     'Speech to text',
     'Learn Sign Language',
     'Emergency',
-    'Examine Environment',
+    'Write on board',
   ];
 
   const renderModalContent = () => {
@@ -78,12 +78,12 @@ const index = () => {
         return <Speechtotext />;
       case 'Emergency':
         return <Emergency userLocation={userLocation} />;
-      case 'Examine Environment':
+      case 'Write on board':
         // to be discused later
         return (
           <>
             <Subheading style={{ fontWeight: 'bold' }}>
-              Examine Environment
+              Write on board
             </Subheading>
           </>
         );

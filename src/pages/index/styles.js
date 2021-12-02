@@ -5,6 +5,12 @@ export const Header = tw.div`px-6 bg-green-600 h-auto md:grid md:grid-cols-2 `;
 
 export const ColOneOfHeader = tw.div`md:col-span-1 md:p-10 p-2`;
 
+export const Label = tw.label`text-xl text-teal-900 font-bold text-left!`;
+
+export const SelectVoice = tw.select`rounded-md bg-gray-200 w-11/12 p-2 md:p-6`;
+
+export const SelectOptin = tw.option`w-11/12`;
+
 export const DeafIllustration = tw.img`md:w-4/5 h-auto w-auto`;
 
 export const ColTwoOfHeader = styled.div`
