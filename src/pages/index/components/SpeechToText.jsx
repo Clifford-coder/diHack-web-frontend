@@ -23,10 +23,10 @@ const Speechtotext = () => {
     handleListen();
   }, [isListening]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  //clear the text area
-  React.useEffect(() => {
-    setNote(null);
-  }, []);
+  // //clear the text area
+  // React.useEffect(() => {
+  //   setNote(null);
+  // }, []);
 
   const handleListen = () => {
     try {
