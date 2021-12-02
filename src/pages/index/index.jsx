@@ -21,6 +21,8 @@ import Modal from '../../components/modal';
 import Texttospeech from './components/TextToSpeech';
 import Emergency from './components/Emergency';
 import Speechtotext from './components/SpeechToText';
+import WrttingPad from './components/WrittingPad';
+
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
@@ -80,13 +82,7 @@ const index = () => {
         return <Emergency userLocation={userLocation} />;
       case 'Write on board':
         // to be discused later
-        return (
-          <>
-            <Subheading style={{ fontWeight: 'bold' }}>
-              Write on board
-            </Subheading>
-          </>
-        );
+        return <WrttingPad />;
       default:
         break;
     }

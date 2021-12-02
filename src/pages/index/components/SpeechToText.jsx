@@ -48,6 +48,7 @@ const Speechtotext = () => {
           .map((result) => result[0])
           .map((result) => result.transcript)
           .join('');
+        console.log('transcript ---- ', transcript);
         setNote(transcript);
         mic.onerror = (event) => {
           console.log(event.error);

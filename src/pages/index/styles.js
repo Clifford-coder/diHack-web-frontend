@@ -63,4 +63,6 @@ export const AudioPlayerWrapper = tw.div`w-full -mt-8 h-auto py-8 px-12 rounded-
 export const Audio = tw.audio`w-full focus:outline-none mt-2`;
 export const Source = tw.source``;
 
+export const WrittingPadActions = tw.div`flex`;
+
 // md:bg-gradient-to-l md:from-white md:via-blue-300  md:to-blue-600 bg-gradient-to-t from-white via-green-300 to-blue-600
