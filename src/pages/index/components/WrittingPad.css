@@ -1,0 +1,55 @@
+.SignaturePadWrapper {
+  position: relative;
+  border: 2px solid rgba(144, 150, 144, 0.87);
+  margin-bottom: 10px;
+}
+
+.GenWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signatureCanvas {
+  /* min-height: 500px; */
+}
+
+@media (min-width: 320px) {
+  .signatureCanvas {
+    width: 300px;
+    min-height: 400px;
+    padding: 5px;
+  }
+
+  .GenWrap {
+    min-height: 500px;
+  }
+}
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  .signatureCanvas {
+    width: 500px;
+  }
+}
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  .signatureCanvas {
+    width: auto;
+    min-height: auto;
+    padding: 4px;
+  }
+
+  .GenWrap {
+    min-height: 800px;
+  }
+}
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
+}
