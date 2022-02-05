@@ -5,6 +5,7 @@ import Signup from './pages/signup';
 import SignIn from './pages/login';
 import LearnSignLang from './pages/learnSignLang';
 import { firebaseAuth } from './apis/Firebase';
+import Notfound from './pages/Notfound';
 
 function App() {
   const currentUser = firebaseAuth.getAuth().currentUser;
@@ -21,6 +22,7 @@ function App() {
     { path: '/', element: <Navigate to="/home" /> },
     { path: '/sign-up', element: <Signup /> },
     { path: '/sign-in', element: <SignIn /> },
+    { path: '*', element: <Notfound /> },
   ]);
 
   return routing;
