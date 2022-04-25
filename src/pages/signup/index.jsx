@@ -78,7 +78,7 @@ const signup = () => {
           );
         else if (errorMessage.includes('auth/network-request-failed'))
           toast.error('Network Error. Please check your internet connection');
-        else toast.error(errorMessage);
+        else toast.error('Sign up failed: ' + errorMessage);
       }
     },
   });
