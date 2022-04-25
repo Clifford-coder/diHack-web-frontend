@@ -60,6 +60,10 @@ const login = () => {
           );
         else if (errorMessage.includes('auth/network-request-failed'))
           toast.error('Network Error. Please check your internet connection');
+        else if (errorMessage.includes('auth/wrong-password'))
+          toast.error(
+            'Login failed. Invalid email or password, please try again'
+          );
         else toast.error('Login failed: ' + errorMessage);
       }
     },
