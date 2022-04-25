@@ -71,7 +71,14 @@ const signup = () => {
         navigate('/home', { replace: true });
       } catch (error) {
         const errorMessage = error.message;
-        toast.error(errorMessage);
+        console.log(errorMessage);
+        if (errorMessage.includes('auth/email-already-in-use'))
+          toast.error(
+            'Signing up failed. There is an existing user registered with this email'
+          );
+        else if (errorMessage.includes('auth/network-request-failed'))
+          toast.error('Network Error. Please check your internet connection');
+        else toast.error(errorMessage);
       }
     },
   });

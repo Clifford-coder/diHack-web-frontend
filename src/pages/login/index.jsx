@@ -54,7 +54,13 @@ const login = () => {
         navigate('/home', { replace: true });
       } catch (error) {
         const errorMessage = error.message;
-        toast.error(errorMessage);
+        if (errorMessage.includes('auth/user-not-found'))
+          toast.error(
+            'Login failed. Invalid email or password, please try again'
+          );
+        else if (errorMessage.includes('auth/network-request-failed'))
+          toast.error('Network Error. Please check your internet connection');
+        else toast.error(errorMessage);
       }
     },
   });
