@@ -26,7 +26,7 @@ const LearnSignLang = () => {
             params: {
               part: 'snippet',
               maxResults: '20',
-              key: 'AIzaSyDvbcBLBn7z8yjwZrzy8iMjfCH4p40LT1Y', //hide this in .env
+              key: process.env.REACT_APP_GOOGLE_API_KEY, //hide this in .env
               q: 'Learn sign language',
             },
           }
